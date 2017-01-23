@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>My Good Deal</title>
+      <meta charset="utf-8" / />
+      <!-- Material Design Lite references -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+      <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+      <!-- Personal stylesheet -->
+      <style>
+      .mdl-card__actions {
+        margin: auto;
+        width: auto;
+      }
+
+      .mdl-card__media {
+        background-color: white;
+      }
+
+      .mdl-card__media img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .mdl-card__supporting-text, .mdl-textfield {
+        font-style: normal;
+        font-size: 18px;
+        text-decoration: none;
+      }
+
+      .mdl-button {
+        font-size: 28px;
+      }
+
+      .mdl-layout {
+        background-image: url('http://freedomreply.com/wp-content/uploads/2014/06/background-images-for-web-design-2.jpg');
+      }
+      </style>
+  </head>
+  <body>
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--green-100">
+
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title"><h1>My Good Deal</h1></span>
+        </div>
+      </header>
+
+      <main class="mdl-layout__content">
+
+        <div class="content-grid mdl-grid">
+
+          <div class="mdl-cell--4-col">
+
+          </div>
+
+          <!-- 1st CARD: Car Informations -->
+          <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--4dp">
+
+            <div class="mdl-card__title">
+              <div class="material-icons" data-badge="1">attach_money</div>
+              &nbsp;&nbsp;&nbsp;
+              <h2 class="mdl-card__title-text">Deal Informations</h2>
+            </div>
+
+            <!-- card media: car flat design -->
+            <div class="mdl-card__media">
+              <img src="http://www.newdesignfile.com/postpic/2011/08/small-building-icon_354082.png" width="160" height="90">
+            </div>
+
+            <div class="mdl-card__supporting-text">
+              <div id="car">
+
+                <form action="" method="post">
+                  <!-- a set of fields -->
+                  <div class="mdl-textfield mdl-js-textfield">
+                    Leboncoin URL
+                    <input class="leboncoin-url mdl-textfield__input" type="text" id="leboncoin-url" name="url">
+                  </div>
+
+                  <!-- A button for deal comparison -->
+                  <div class="mdl-card__actions">
+                    <input type="submit" class="mdl-button mdl-js-button mdl-button--primary"></input>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>

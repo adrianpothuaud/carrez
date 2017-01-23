@@ -1,0 +1,27 @@
+{
+  "name": "carrez-ws",
+  "version": "0.0.1",
+  "description": "Scrapping leboncoin.com & meilleursagents.com to know wether a rental is a good or a bad deal",
+  "main": "server.js",
+  "author": "Adrian Pothuaud",
+  "dependencies": {
+    "request": "latest",
+    "jsonfile": "latest",
+    "cheerio": "latest",
+    "formidable": "latest",
+    "dialog": "latest"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianpothuaud/carrez.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianpothuaud/carrez/issues"
+  },
+  "homepage": "https://github.com/adrianpothuaud/carrez#readme"
+}
