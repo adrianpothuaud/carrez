@@ -48,9 +48,10 @@ function processForm(req, res) {
       url = fields.url;
       console.log("received from form: " + url);
       leboncoin.request(url);
-
   });
+
   form.parse(req);
+  Object.keys(require.cache).forEach(function(key) { delete require.cache[key]; });
 }
 
 server.listen(8080);
