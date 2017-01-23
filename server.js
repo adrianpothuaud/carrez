@@ -8,9 +8,6 @@ var request = require('request');
 var cheerio = require('cheerio');
 var jsonfile = require('jsonfile')
 var leboncoin = require('./leboncoin');
-var meilleursagents = require('./meilleursagents');
-var gooddeal = require('./goodDeal');
-var dialog = require('dialog');
 
 var url;
 
@@ -51,8 +48,7 @@ function processForm(req, res) {
       url = fields.url;
       console.log("received from form: " + url);
       leboncoin.request(url);
-      meilleursagents.request();
-      dialog.info(gooddeal.request());
+
   });
   form.parse(req);
 }

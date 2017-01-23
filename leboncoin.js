@@ -1,6 +1,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
-var jsonfile = require('jsonfile');
+var fs = require('fs');
+var meilleursagents = require('./meilleursagents');
 
 /**
 * Array cleaner utility
@@ -78,13 +79,11 @@ exports.request = function(url) {
           json.surface = surface;
           json.type = type;
 
-          jsonfile.writeFile("./lbc_data.json", json, function (err) {
-            if(err){
-              console.error(err);
-            }
-          })
+          fs.writeFileSync("./lbc_data.json", JSON.stringify(json));
 
           console.log("Data stored in ./lbc_data.json");
       }
+
+      meilleursagents.request();
   })
 };

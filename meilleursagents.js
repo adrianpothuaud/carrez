@@ -1,7 +1,8 @@
 var request = require('request');
 var cheerio = require('cheerio');
-var jsonfile = require('jsonfile');
 var fs = require('fs');
+var gooddeal = require('./goodDeal');
+var dialog = require('dialog');
 
 /**
 * Array cleaner utility
@@ -23,8 +24,10 @@ exports.request = function() {
   console.log('going to meilleurs agents');
 
   var lbc_json = require('./lbc_data.json');
+  lbc_json.price = parseFloat(lbc_json.price);
+  lbc_json.surface = parseFloat(lbc_json.surface);
 
-  console.log("lbc_json:");
+  console.log("read leboncoin informations from json:");
   console.log(lbc_json);
 
   var urlSuf = lbc_json.city.toLowerCase() + "-" + lbc_json.zip.toString();
@@ -54,21 +57,23 @@ exports.request = function() {
             moyPriceList.push(item);
           });
 
-          json2 = new Object();
+          var json2 = new Object();
           json2.offer = new Object();
           json2.offer.price = lbc_json.price;
           json2.offer.surface = lbc_json.surface;
           json2.offer.type = lbc_json.type;
-          json2.offer.smp = json2.offer.price / json2.offer.surface;
+          json2.offer.smp = lbc_json.price / lbc_json.surface;
 
           json2.avSmpHouse = moyPriceList[1];
           json2.avSmpFloor = moyPriceList[0];
 
-          jsonfile.writeFile('./ma_data.json', json2, function (err) {
-            if(err){
-              console.error(err);
-            }
-          })
+          console.log('json2: ' + json2);
+
+          fs.writeFileSync("./ma_data.json", JSON.stringify(json2));
+
+          console.log('data saved into ma_data.json');
       }
+
+      dialog.info(gooddeal.request());
   })
 };
