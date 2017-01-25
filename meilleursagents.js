@@ -20,7 +20,7 @@ Array.prototype.clean = function(deleteValue) {
   return this;
 };
 
-exports.request = function() {
+exports.request = function(tolerance) {
   console.log('going to meilleurs agents');
 
   var lbc_json = require('./lbc_data.json');
@@ -30,7 +30,7 @@ exports.request = function() {
   console.log("read leboncoin informations from json:");
   console.log(lbc_json);
 
-  var urlSuf = lbc_json.city.toLowerCase() + "-" + lbc_json.zip.toString();
+  var urlSuf = lbc_json.city.toLowerCase().replace(" ", "-") + "-" + lbc_json.zip.toString();
   console.log("url suffix:");
   console.log(urlSuf);
 
@@ -51,10 +51,11 @@ exports.request = function() {
           var moyPriceList = [];
 
           $('.row.baseline--half .prices-summary__cell--median').each(function() {
-            var item = $(this).text().split(' ').clean(undefined).clean('').clean('\n').clean('&euro;\n')[0];
+            var item = $(this).text().split(' ').clean(undefined).clean('').clean('\n').clean('&euro;\n').clean('&nbsp;')[0];
             console.log('1 row read');
             console.log(item);
-            moyPriceList.push(item);
+            console.log(item.replace(/\s/g, ""));
+            moyPriceList.push(parseFloat(item.replace(/\s/g, "")));
           });
 
           var json2 = new Object();
@@ -67,13 +68,13 @@ exports.request = function() {
           json2.avSmpHouse = moyPriceList[1];
           json2.avSmpFloor = moyPriceList[0];
 
-          console.log('json2: ' + json2);
+          console.log('json2: ' + JSON.stringify(json2));
 
           fs.writeFileSync("./ma_data.json", JSON.stringify(json2));
 
           console.log('data saved into ma_data.json');
       }
 
-      dialog.info(gooddeal.request());
+      dialog.info(gooddeal.request(tolerance));
   })
 };

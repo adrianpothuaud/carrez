@@ -46,8 +46,9 @@ function processForm(req, res) {
 
   form.on('end', function () {
       url = fields.url;
+      tolerance = fields.tolerance;
       console.log("received from form: " + url);
-      leboncoin.request(url);
+      leboncoin.request(url, tolerance);
   });
 
   form.parse(req);

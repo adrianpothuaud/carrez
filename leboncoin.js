@@ -19,7 +19,7 @@ Array.prototype.clean = function(deleteValue) {
   return this;
 };
 
-exports.request = function(url) {
+exports.request = function(url, tolerance) {
   console.log('going to leboncoin');
 
   request(url, function(error, response, html){
@@ -84,6 +84,6 @@ exports.request = function(url) {
           console.log("Data stored in ./lbc_data.json");
       }
 
-      meilleursagents.request();
+      meilleursagents.request(tolerance);
   })
 };

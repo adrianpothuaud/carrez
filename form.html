@@ -77,11 +77,31 @@
               <div id="car">
 
                 <form action="" method="post">
-                  <!-- a set of fields -->
-                  <div class="mdl-textfield mdl-js-textfield">
-                    Leboncoin URL
-                    <input class="leboncoin-url mdl-textfield__input" type="text" id="leboncoin-url" name="url">
-                  </div>
+                  <fieldset>
+                    <!-- a set of fields -->
+                    <div class="mdl-textfield mdl-js-textfield">
+                      <legend>
+                        Put the url of Leboncoin offer
+                      </legend>
+                      <input class="leboncoin-url mdl-textfield__input" type="text" id="leboncoin-url" name="url">
+                    </div>
+                  </fieldset>
+
+                  <fieldset>
+                    <legend>
+                      Choose your tolerance over the price
+                    </legend>
+                    <select name="tolerance">
+                      <option value="0.05">5%</option>
+                      <option value="0.1">10%</option>
+                      <option value="0.15">15%</option>
+                      <option value="0.20">20%</option>
+                      <option value="0.25">25%</option>
+                      <option value="0.30">30%</option>
+                    </select>
+                  </fieldset>
+
+
 
                   <!-- A button for deal comparison -->
                   <div class="mdl-card__actions">
