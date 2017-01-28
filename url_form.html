@@ -19,14 +19,22 @@
             <li role="presentation"><a href="http://localhost:3000/listRentals/">Saved Ads</a></li>
           </ul>
         </nav>
-        <form method="POST" action="http://localhost:3000">
-          <h2>Rental form</h2>
-          <p>Leboncoin URL
-          <input type="url" required name="lbc_url" placeholder="Leboncoin rental url" id="lbc_url"></p>
-          <p>Tolerance for price evaluation
-          <input type="number" required min="0" max="1" name="tolerance" id="tolerance" step="0.01" placeholder="Tolerance" /></p>
-          <br/>
-          <button type="submit" name="btn">Evaluate</button>
+        <form method="POST" action="http://localhost:3000/">
+          <h1>Ad form</h1>
+          <p>Please fill in your ad's url (from leboncoin.fr) and the maximum range you desire between the ad price by squared meter and the regional average.</p>
+          <div class="form-group">
+            <label for="lbc_url">Leboncoin URL:</label>
+            <input type="url" required class="form-control" id="lbc_url" name="lbc_url">
+          </div>
+          <div class="form-group">
+            <label for="tolerance">Max range:</label>
+            <input type="number" required min="0" max="1" step="0.05" class="form-control" id="tolerance" name="tolerance">
+          </div>
+          <!-- <input type="url" required name="lbc_url" placeholder="Leboncoin rental url" id="lbc_url"> -->
+          <!-- <p>Tolerance range&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="number" required min="0" max="1" name="tolerance" id="tolerance" step="0.01" placeholder="range" /></p>
+          <br/> -->
+          <button type="submit" name="btn" class="btn btn-primary">Evaluate</button>
         </form>
       </div>
     </div>

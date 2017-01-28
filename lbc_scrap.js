@@ -43,9 +43,9 @@ exports.request = function(url, tolerance, res) {
           $('.line_city .clearfix .value').each(function() {
               var list = $(this).text().split(' ').clean(undefined).clean('');
               var list_size = list.length;
-              city = list[0];
+              city = list[0].replace('é', 'e').replace('�', 'e');
               for(var i = 1; i < list_size-1; i++){
-                city += " " + list[i];
+                city += " " + list[i].replace('é', 'e').replace('�', 'e');
               }
               zip = parseInt(list[list_size - 1]);
               console.log("City: " + city + ", ZIP: " + zip);

@@ -19,3 +19,9 @@ Go to http://localhost:3000/
 Then fill the form with an url.
 
 If it is a good deal you can save it to your ads. Then from ads view you can delete those you don't want anymore.
+
+## Persistent problems
+
+utf-8 encoding
+
+Exemple: when scrapping a city name like "Bouillé-Ménard"
