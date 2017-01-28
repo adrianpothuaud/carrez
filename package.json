@@ -1,27 +1,18 @@
 {
-  "name": "carrez-ws",
-  "version": "0.0.1",
-  "description": "Scrapping leboncoin.com & meilleursagents.com to know wether a rental is a good or a bad deal",
+  "name": "web_ws3_carrez",
+  "version": "1.0.0",
+  "description": "This application is designed to create a link between leboncoin.fr and meilleursagents.com to be able to evaluate an ad. This is made by doing a comparison on the price by squared meter between the ad and the average regional statistics.",
   "main": "server.js",
-  "author": "Adrian Pothuaud",
-  "dependencies": {
-    "request": "latest",
-    "jsonfile": "latest",
-    "cheerio": "latest",
-    "formidable": "latest",
-    "dialog": "latest"
-  },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adrianpothuaud/carrez.git"
+  "dependencies": {
+    "request":"latest",
+    "cheerio":"latest",
+    "body-parser":"latest",
+    "express":"latest"
   },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/adrianpothuaud/carrez/issues"
-  },
-  "homepage": "https://github.com/adrianpothuaud/carrez#readme"
+  "author": "Adrian Pothuaud",
+  "license": "ISC"
 }
