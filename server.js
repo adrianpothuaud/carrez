@@ -1,3 +1,4 @@
+// Requirements
 var express = require('express');
 var app = express();
 var fs = require("fs");
@@ -10,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 /**
 *   GET method on main page
-*   display form
+*   display form from form.html
 **/
 app.get('/', function (req, res) {
   console.log("REQUEST on main page");
@@ -25,14 +26,14 @@ app.get('/', function (req, res) {
 
 /**
 Processing form on main page
+  do leboncoin scrapping
+  then meilleursagents scrapping
+  then redirect to /scrapped and sends results
 **/
 app.post('/', function (req, res) {
   console.log("POST on main page");
-  var url = req.body.lbc_url;
-  var tolerance = req.body.tolerance;
-  var save = req.body.save;
-  var lbc_json = new Object();
-  lbc_scrap.request(url, tolerance, res);
+  lbc_scrap.request(req.body.lbc_url, req.body.tolerance, res);
+  // refresh
   Object.keys(require.cache).forEach(function(key) { delete require.cache[key]; });
 })
 
@@ -67,9 +68,9 @@ app.get('/scrapped', function(req, res) {
             +"</ul>"
             +"</nav>");
 
-res.write("<div class=\"container\">"
-          +"<br/><br/>"
-          +"</div>");
+  res.write("<div class=\"container\">"
+            +"<br/><br/>"
+            +"</div>");
 
   var offerSmp = req.query.smp;
   var offerType = req.query.type;
@@ -86,7 +87,7 @@ res.write("<div class=\"container\">"
   res.write("<div class=\"col\">");
 
   res.write("<div class=\"media\"><a href=\""+req.query.url+"\"><img src=\"" + req.query.img + "\" class=\"img-responsive img-thumbnail\" width=\"30%\" height=\"30%\"></a></div>");
-  
+
   res.write("</div>");
 
   res.write("<div class=\"col\">");
@@ -228,9 +229,7 @@ app.get('/listRentals', function (req, res) {
       });
       res.write("</ul>");
     }
-    
-
-
+  
     res.end("</div>"
           +"</div>"
           +"</body>"
@@ -319,7 +318,7 @@ app.post('/delete', function (req, res) {
   }
   fs.writeFileSync("./rentals.json", JSON.stringify(rentals));
   res.redirect('/listRentals/');
-   
+
 })
 
 var server = app.listen(3000, function () {

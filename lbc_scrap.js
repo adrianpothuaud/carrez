@@ -43,7 +43,7 @@ exports.request = function(url, tolerance, res) {
           $('.line_city .clearfix .value').each(function() {
               var list = $(this).text().split(' ').clean(undefined).clean('');
               var list_size = list.length;
-              city = list[0].replace('é', 'e').replace('�', 'e');
+              city = list[0].replace('é', 'e').replace('�', 'e').replace('ô','o');
               for(var i = 1; i < list_size-1; i++){
                 city += " " + list[i].replace('é', 'e').replace('�', 'e');
               }
